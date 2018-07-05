@@ -82,7 +82,67 @@ enum { MACRO_VERSION_INFO,
        MACRO_ANY
      };
 
+#define Dv_LeftBracket Key_Minus
+#define Dv_LeftCurlyBracket LSHIFT(Dv_LeftBracket)
+#define Dv_RightBracket Key_Equals
+#define Dv_RightCurlyBracket LSHIFT(Dv_RightBracket)
 
+#define Dv_Quote Key_Q
+#define Dv_DoubleQuote LSHIFT(Dv_Quote)
+#define Dv_Comma Key_W
+#define Dv_LeftAngleBracket LSHIFT(Dv_Comma)
+#define Dv_Period Key_E
+#define Dv_RightAngleBracket LSHIFT(Dv_Period)
+#define Dv_P Key_R
+#define Dv_Y Key_T
+#define Dv_F Key_Y
+#define Dv_G Key_U
+#define Dv_C Key_I
+#define Dv_R Key_O
+#define Dv_L Key_P
+#define Dv_Slash Key_LeftBracket
+#define Dv_QuestionMark LSHIFT(Dv_Slash)
+#define Dv_Equals Key_RightBracket
+#define Dv_Plus LSHIFT(Dv_Equals)
+#define Dv_Backslash Key_Backslash
+#define Dv_Pipe LSHIFT(Dv_Backslash)
+
+#define Dv_A Key_A
+#define Dv_O Key_S
+#define Dv_E Key_D
+#define Dv_U Key_F
+#define Dv_I Key_G
+#define Dv_D Key_H
+#define Dv_H Key_J
+#define Dv_T Key_K
+#define Dv_N Key_L
+#define Dv_S Key_Semicolon
+#define Dv_Minus Key_Quote
+#define Dv_Underscore LSHIFT(Dv_Minus)
+
+#define Dv_Semicolon Key_Z
+#define Dv_Colon LSHIFT(Dv_Semicolon)
+#define Dv_Q Key_X
+#define Dv_J Key_C
+#define Dv_K Key_V
+#define Dv_X Key_B
+#define Dv_B Key_N
+#define Dv_M Key_M
+#define Dv_W Key_Comma
+#define Dv_V Key_Period
+#define Dv_Z Key_Slash
+
+#define Key_Tilde LSHIFT(Key_Backtick)
+#define Key_ExclamationMark LSHIFT(Key_1)
+#define Key_At LSHIFT(Key_2)
+#define Key_Hash LSHIFT(Key_3)
+#define Key_Dollar LSHIFT(Key_4)
+#define Key_Percent LSHIFT(Key_5)
+#define Key_Caret LSHIFT(Key_6)
+#define Key_Ampersand LSHIFT(Key_7)
+#define Key_Star LSHIFT(Key_8)
+#define Key_LeftParen LSHIFT(Key_9)
+#define Key_RightParen LSHIFT(Key_0)
 
 /** The Model 01's key layouts are defined as 'keymaps'. By default, there are three
   * keymaps: The standard QWERTY keymap, the "Function layer" keymap and the "Numpad"
@@ -126,29 +186,63 @@ enum { MACRO_VERSION_INFO,
   *
   */
 
-enum { QWERTY, NUMPAD, FUNCTION }; // layers
+enum { QWERTY, SYMBOL, NUMPAD, FUNCTION }; // layers
 
 /* This comment temporarily turns off astyle's indent enforcement
  *   so we can make the keymaps actually resemble the physical key layout better
  */
 // *INDENT-OFF*
 
+/* Template:
+
+  [SYMBOL] = KEYMAP_STACKED
+  (___      , ___      , ___      , ___      , ___      , ___      , ___      ,
+   ___      , ___      , ___      , ___      , ___      , ___      , ___      ,
+   ___      , ___      , ___      , ___      , ___      , ___      ,
+   ___      , ___      , ___      , ___      , ___      , ___      , ___      ,
+   ___, ___, ___, ___,
+   ___,
+
+   ___      , ___      , ___      , ___      , ___      , ___      , ___      ,
+   ___      , ___      , ___      , ___      , ___      , ___      , ___      ,
+              ___      , ___      , ___      , ___      , ___      , ___      ,
+   ___      , ___      , ___      , ___      , ___      , ___      , ___      ,
+   ___, ___, ___, ___,
+   ___),
+
+*/
+
 KEYMAPS(
 
   [QWERTY] = KEYMAP_STACKED
   (___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
-   Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
-   Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
-   Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
-   ShiftToLayer(FUNCTION),
+   Key_Backtick, Dv_Quote, Dv_Comma, Dv_Period, Dv_P, Dv_Y, Key_Tab,
+   Key_Escape,   Dv_A, Dv_O, Dv_E, Dv_U, Dv_I,
+   Key_PageDown, Dv_Semicolon, Dv_Q, Dv_J, Dv_K, Dv_X, Key_Escape,
+   Key_LeftGui, Key_Backspace, Key_LeftShift, Key_LeftControl,
+   ShiftToLayer(SYMBOL),
 
    M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
-   Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
-                  Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
-   Key_RightAlt,  Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
-   Key_RightShift, Key_LeftAlt, Key_Spacebar, Key_RightControl,
+   Key_Enter,     Dv_F, Dv_G, Dv_C,     Dv_R,         Dv_L,         Key_Equals,
+                  Dv_D, Dv_H, Dv_T,     Dv_N,         Dv_S, Dv_Minus,
+   Key_RightAlt,  Dv_B, Dv_M, Dv_W, Dv_V,    Dv_Z,     Key_Minus,
+   Key_RightControl, Key_RightShift, Key_Spacebar, Key_LeftAlt,
    ShiftToLayer(FUNCTION)),
+
+  [SYMBOL] = KEYMAP_STACKED
+  (___      , ___      , ___      , ___      , ___      , ___      , ___      ,
+   ___    , Key_Percent, Key_Star, Key_Dollar, Key_Hash , Dv_Colon , ___      ,
+   ___, Dv_LeftAngleBracket, Dv_LeftCurlyBracket, Dv_LeftBracket, Key_LeftParen, Dv_Equals,
+   ___      , ___    , Key_Tilde, Key_ExclamationMark, Dv_Slash, ___   , ___      ,
+   ___, ___, ___, ___,
+   ___,
+
+   ___      , ___      , ___      , ___      , ___      , ___      , ___      ,
+   ___      , Dv_Plus , Key_At, Key_Ampersand, Dv_Backslash, Key_Caret, ___   ,
+              Dv_Minus, Key_RightParen, Dv_RightBracket, Dv_RightCurlyBracket, Dv_RightAngleBracket, ___,
+   ___      , ___      , Dv_Semicolon, Dv_QuestionMark, Key_Backtick, ___      , ___      ,
+   ___, ___, Dv_Underscore, ___,
+   ___),
 
 
   [NUMPAD] =  KEYMAP_STACKED
@@ -176,7 +270,7 @@ KEYMAPS(
 
    Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
-                               Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow,  ___,              ___,
+                               ___, Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow,              ___,
    Key_PcApplication,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
    ___, ___, Key_Enter, ___,
    ___)
