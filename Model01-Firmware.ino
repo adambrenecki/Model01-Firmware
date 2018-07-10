@@ -231,16 +231,16 @@ KEYMAPS(
 
   [SYMBOL] = KEYMAP_STACKED
   (___      , ___      , ___      , ___      , ___      , ___      , ___      ,
-   ___    , Key_Percent, Key_Star, Key_Dollar, Key_Hash , Dv_Colon , ___      ,
-   ___, Dv_LeftAngleBracket, Dv_LeftCurlyBracket, Dv_LeftBracket, Key_LeftParen, Dv_Equals,
-   ___      , ___    , Key_Tilde, Key_ExclamationMark, Dv_Slash, ___   , ___      ,
+   ___    , Dv_Backslash, Dv_Plus, Dv_LeftBracket, Dv_LeftCurlyBracket , Key_Percent , ___      ,
+   ___, Key_Dollar, Dv_Equals, Dv_LeftAngleBracket, Key_LeftParen, Key_At,
+   ___      , ___    , Key_Tilde, Key_Backtick, Key_ExclamationMark, ___   , ___      ,
    ___, ___, ___, ___,
    ___,
 
    ___      , ___      , ___      , ___      , ___      , ___      , ___      ,
-   ___      , Dv_Plus , Key_At, Key_Ampersand, Dv_Backslash, Key_Caret, ___   ,
-              Dv_Minus, Key_RightParen, Dv_RightBracket, Dv_RightCurlyBracket, Dv_RightAngleBracket, ___,
-   ___      , ___      , Dv_Semicolon, Dv_QuestionMark, Key_Backtick, ___      , ___      ,
+   ___      , Dv_Slash , Dv_RightCurlyBracket, Dv_RightBracket, Dv_QuestionMark, Key_Star, ___   ,
+              Key_Ampersand, Key_RightParen, Dv_RightAngleBracket, Dv_Colon, Key_Hash, ___,
+   ___      , ___      , Key_Caret, Dv_Pipe, Key_Semicolon, ___      , ___      ,
    ___, ___, Dv_Underscore, ___,
    ___),
 
