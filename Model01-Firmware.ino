@@ -222,11 +222,11 @@ KEYMAPS(
    Key_LeftGui, Key_Backspace, Key_LeftShift, Key_LeftControl,
    ShiftToLayer(SYMBOL),
 
-   M(MACRO_ANY),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
+   LGUI(LCTRL(Dv_Q)),  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
    Key_Enter,     Dv_F, Dv_G, Dv_C,     Dv_R,         Dv_L,         Key_Equals,
                   Dv_D, Dv_H, Dv_T,     Dv_N,         Dv_S, Dv_Minus,
    Key_RightAlt,  Dv_B, Dv_M, Dv_W, Dv_V,    Dv_Z,     Key_Minus,
-   Key_RightControl, Key_RightShift, Key_Spacebar, Key_LeftAlt,
+   Key_LeftAlt, Key_RightShift, Key_Spacebar, Key_Tab,
    ShiftToLayer(FUNCTION)),
 
   [SYMBOL] = KEYMAP_STACKED
@@ -248,7 +248,7 @@ KEYMAPS(
   [NUMPAD] =  KEYMAP_STACKED
   (___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___, ___, ___, ___,
-   ___, ___, ___, ___, ___, ___,
+   ___, Key_Home, Key_PageDown, Key_PageUp, Key_End, ___,
    ___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___,
    ___,
